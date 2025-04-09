@@ -103,38 +103,38 @@ export default function Form() {
 
           {/* Prescription type radio buttons */}
           <div>
-            <p className="block text-sm font-medium text-gray-700 mb-1">¿La receta es para uso humano o veterinario?</p>
-            <div className="flex space-x-6">
-              <div className="flex items-center">
-                <input
-                  type="radio"
-                  id="humano"
-                  name="prescriptionType"
-                  value="humano"
-                  checked={formData.prescriptionType === "humano"}
-                  onChange={handleInputChange}
-                  className="h-4 w-4 text-[#0D9488] focus:ring-[#0D9488] border-gray-300"
-                />
-                <label htmlFor="humano" className="ml-2 text-sm text-gray-700">
-                  Humano
-                </label>
-              </div>
-              <div className="flex items-center">
-                <input
-                  type="radio"
-                  id="veterinario"
-                  name="prescriptionType"
-                  value="veterinario"
-                  checked={formData.prescriptionType === "veterinario"}
-                  onChange={handleInputChange}
-                  className="h-4 w-4 text-[#0D9488] focus:ring-[#0D9488] border-gray-300"
-                />
-                <label htmlFor="veterinario" className="ml-2 text-sm text-gray-700">
-                  Veterinario
-                </label>
-              </div>
-            </div>
-          </div>
+  <p className="block text-sm font-medium text-gray-700 mb-1">¿La receta es para uso humano o veterinario?</p>
+  <div className="flex space-x-6">
+    <div className="flex items-center">
+    <input
+      type="radio"
+      id="humano"
+      name="prescriptionType"
+      value="humano"
+      checked={formData.prescriptionType === "humano"}
+      onChange={handleInputChange}
+      className="h-4 w-4 appearance-none rounded-full border border-gray-300 checked:bg-[#0D9488] checked:border-[#0D9488] focus:outline-none"
+        />
+      <label htmlFor="humano" className="ml-2 text-sm text-gray-700">
+        Humano
+      </label>
+    </div>
+    <div className="flex items-center">
+    <input
+      type="radio"
+      id="veterinario"
+      name="prescriptionType"
+      value="veterinario"
+      checked={formData.prescriptionType === "veterinario"}
+      onChange={handleInputChange}
+      className="h-4 w-4 appearance-none rounded-full border border-gray-300 checked:bg-[#0D9488] checked:border-[#0D9488] focus:outline-none"
+        />
+      <label htmlFor="veterinario" className="ml-2 text-sm text-gray-700">
+        Veterinario
+      </label>
+    </div>
+  </div>
+</div>
 
           {/* File upload */}
           <div>
