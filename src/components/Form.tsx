@@ -43,7 +43,7 @@ export default function Form() {
   }
 
   return (
-    <section className="py-16 px-4" id="solicitar">
+    <section className="py-16 px-4" id="solicitud">
       <div className="container mx-auto max-w-md">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold">
@@ -113,7 +113,7 @@ export default function Form() {
       value="humano"
       checked={formData.prescriptionType === "humano"}
       onChange={handleInputChange}
-      className="h-4 w-4 appearance-none rounded-full border border-gray-300 checked:bg-[#0D9488] checked:border-[#0D9488] focus:outline-none"
+      className="custom-radio"
         />
       <label htmlFor="humano" className="ml-2 text-sm text-gray-700">
         Humano
@@ -127,7 +127,7 @@ export default function Form() {
       value="veterinario"
       checked={formData.prescriptionType === "veterinario"}
       onChange={handleInputChange}
-      className="h-4 w-4 appearance-none rounded-full border border-gray-300 checked:bg-[#0D9488] checked:border-[#0D9488] focus:outline-none"
+      className="custom-radio"
         />
       <label htmlFor="veterinario" className="ml-2 text-sm text-gray-700">
         Veterinario

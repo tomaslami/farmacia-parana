@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react"
 
 export default function Preparation() {
   return (
-    <section className="bg-[#F7F7F7] py-16 px-4">
+    <section className="bg-[#F7F7F7] py-16 px-4" id="proceso">
       <div className="container mx-auto max-w-5xl">
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6">

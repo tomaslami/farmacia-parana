@@ -9,3 +9,25 @@ body {
 *{
   scroll-behavior: smooth;
 }
+
+.custom-radio {
+  @apply appearance-none h-4 w-4 rounded-full border border-gray-300 align-middle cursor-pointer;
+  position: relative;
+}
+
+.custom-radio:checked {
+  border-color: #0D9488;
+  background-color: white;
+}
+
+.custom-radio:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  background-color: #0D9488;
+}
