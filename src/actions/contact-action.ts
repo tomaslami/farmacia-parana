@@ -39,7 +39,7 @@ export async function handleSubmit(formData: FormData) {
     // Send email with Resend
     const { data, error } = await resend.emails.send({
       from: "Solicitud@farmacianuevaparana.com.ar",
-      to: ["farmacianuevaparana@hotmail.com"],
+      to: ["tomaslamiguralnik@gmail.com"],
       subject: "Nueva solicitud de Receta",
       html: `
         <p><strong>Nombre:</strong> ${name}</p>
