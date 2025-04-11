@@ -11,7 +11,7 @@ export default function LocationSection() {
 
         {/* Subtitle */}
         <p className="text-center text-sm md:text-base max-w-2xl mx-auto mb-8 sm:mb-10">
-          Nuestra Farmacia se encuentra en Av. Corrientes 1234, CABA. Podés informarte en nuestra oficina o consultarnos
+          Nuestra Farmacia se encuentra en Paraná 185, CABA. Podés informarte en nuestro local o consultarnos
           por WhatsApp.
         </p>
 
@@ -51,8 +51,7 @@ export default function LocationSection() {
               </div>
               <div>
                 <h4 className="font-medium text-gray-900">Horarios</h4>
-                <p className="text-gray-600 text-sm">Lunes a Viernes: 8:30 a 20:00</p>
-                <p className="text-gray-600 text-sm">Sábados: 9:00 a 13:00</p>
+                <p className="text-gray-600 text-sm">Lunes a Viernes: 8:30 a 19:00</p>
               </div>
             </div>
 
@@ -75,7 +74,7 @@ export default function LocationSection() {
               </div>
               <div>
                 <h4 className="font-medium text-gray-900">Email</h4>
-                <p className="text-gray-600 text-sm">farmacianuevaparana@hotmail.comr</p>
+                <p className="text-gray-600 text-sm">farmacianuevaparana@hotmail.com</p>
               </div>
             </div>
           </div>

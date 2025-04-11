@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { ChevronRight, Home, Menu, X, FileText, Star, Users, Clock, MapPin } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
@@ -47,8 +48,17 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto max-w-6xl flex h-16 items-center justify-between px-4">
-        <Link href="/" className="text-xl font-semibold text-black">
-          Farmacia Paraná
+        <Link href="/" className="flex items-center">
+          <div className="h-10 flex justify-center items-center">
+            <Image
+              src="/images/logo.png"
+              alt="Farmacia Paraná Logo"
+              width={160}
+              height={40}
+              className="object-contain "
+              priority
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -71,7 +81,7 @@ export default function Navbar() {
         </nav>
 
         <Link
-          href="#solicitar"
+          href="#solicitud"
           className="hidden md:inline-flex items-center rounded-md bg-[#0D9488] px-4 py-2 text-sm font-medium text-white hover:bg-[#0D9488]/90"
         >
           Solicitar Receta
@@ -87,7 +97,7 @@ export default function Navbar() {
             </button>
           </SheetTrigger>
           <SheetContent side="right" className="p-0 bg-[#d6d6d6] text-white border-l-0" hideCloseButton={true}>
-          <SheetTitle></SheetTitle>
+            <SheetTitle></SheetTitle>
             <AnimatePresence>
               <motion.div
                 className="flex flex-col h-full"
@@ -106,13 +116,19 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Link href="/" className="text-lg font-semibold text-black" onClick={() => setIsOpen(false)}>
-                    Farmacia Paraná
+                  <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center">
+                  <div className="h-8 flex justify-center items-center">
+                    <Image
+                      src="/images/logo.png"
+                      alt="Farmacia Paraná Logo"
+                      width={120}
+                      height={30}
+                      className="object-contain "
+                      priority
+                    />
+                  </div>
                   </Link>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="text-black flex items-center cursor-pointer"
-                  >
+                  <button onClick={() => setIsOpen(false)} className="text-black flex items-center cursor-pointer">
                     <X className="h-6 w-6" />
                     <span className="sr-only">Cerrar menú</span>
                   </button>
@@ -179,14 +195,14 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.4 }}
                 >
-                    <Link
-                      href="#solicitar"
-                      className="flex items-center justify-center w-full rounded-md bg-[#0D9488] px-4 py-2 text-sm font-medium text-white hover:bg-[#0D9488]/90"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Solicitar Receta
-                      <ChevronRight className="ml-1 h-4 w-4" />
-                    </Link>
+                  <Link
+                    href="#solicitud"
+                    className="flex items-center justify-center w-full rounded-md bg-[#0D9488] px-4 py-2 text-sm font-medium text-white hover:bg-[#0D9488]/90"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Solicitar Receta
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Link>
                 </motion.div>
               </motion.div>
             </AnimatePresence>

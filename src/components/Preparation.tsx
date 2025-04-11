@@ -60,7 +60,7 @@ export default function Preparation() {
         {/* CTA Button */}
         <div className="flex justify-center">
           <Link
-            href="#solicitar"
+            href="#solicitud"
             className="border-[#0D9488] border-[1px] inline-flex items-center rounded-md bg-[#CCFBF1] px-5 py-2.5 text-sm font-medium text-[#0D9488] hover:bg-[#0D9488]/20"
           >
             Solicitar Receta

@@ -4,46 +4,48 @@ import type React from "react"
 
 import { useState } from "react"
 import { Upload } from "lucide-react"
+import { handleSubmit } from "@/actions/contact-action"
+import { toast, Toaster } from "sonner"
 
-export default function Form() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    prescriptionType: "humano",
-    prescription: null as File | null,
-    message: "",
-  })
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+export default function RequestForm() {
+  const [isLoading, setIsLoading] = useState(false)
+  const [fileName, setFileName] = useState<string | null>(null)
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setFormData((prev) => ({ ...prev, prescription: e.target.files![0] }))
+      setFileName(e.target.files[0].name)
+    } else {
+      setFileName(null)
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would handle the form submission, e.g., send data to an API
-    console.log("Form submitted:", formData)
-    // Reset form after submission
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      prescriptionType: "humano",
-      prescription: null,
-      message: "",
-    })
-    alert("Solicitud enviada con éxito. Nos pondremos en contacto a la brevedad.")
+  async function onSubmit(formData: FormData) {
+    setIsLoading(true)
+
+    try {
+      const res = await handleSubmit(formData)
+
+      if (res.status === 200) {
+        toast.success(res.message)
+        // Reset the form
+        const form = document.getElementById("request-form") as HTMLFormElement
+        form?.reset()
+        setFileName(null)
+      } else {
+        const messages = Array.isArray(res.message) ? res.message : [res.message]
+        messages.forEach((msg: string) => toast.error(msg))
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      toast.error("Error al enviar el mensaje")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
-    <section className="py-16 px-4" id="solicitud">
+    <section className="py-16 px-4" id="solicitar">
+      <Toaster position="top-center" duration={3000} richColors />
       <div className="container mx-auto max-w-md">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold">
@@ -52,8 +54,7 @@ export default function Form() {
           <p className="text-sm text-gray-600 mt-2">Completá el formulario y nos pondremos en contacto a la brevedad</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Name field */}
+        <form id="request-form" action={onSubmit}  className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
               Nombre y apellido
@@ -62,8 +63,6 @@ export default function Form() {
               type="text"
               id="name"
               name="name"
-              value={formData.name}
-              onChange={handleInputChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0D9488]"
             />
@@ -78,8 +77,6 @@ export default function Form() {
               type="email"
               id="email"
               name="email"
-              value={formData.email}
-              onChange={handleInputChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0D9488]"
             />
@@ -94,8 +91,6 @@ export default function Form() {
               type="tel"
               id="phone"
               name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0D9488]"
             />
@@ -103,38 +98,35 @@ export default function Form() {
 
           {/* Prescription type radio buttons */}
           <div>
-  <p className="block text-sm font-medium text-gray-700 mb-1">¿La receta es para uso humano o veterinario?</p>
-  <div className="flex space-x-6">
-    <div className="flex items-center">
-    <input
-      type="radio"
-      id="humano"
-      name="prescriptionType"
-      value="humano"
-      checked={formData.prescriptionType === "humano"}
-      onChange={handleInputChange}
-      className="custom-radio"
-        />
-      <label htmlFor="humano" className="ml-2 text-sm text-gray-700">
-        Humano
-      </label>
-    </div>
-    <div className="flex items-center">
-    <input
-      type="radio"
-      id="veterinario"
-      name="prescriptionType"
-      value="veterinario"
-      checked={formData.prescriptionType === "veterinario"}
-      onChange={handleInputChange}
-      className="custom-radio"
-        />
-      <label htmlFor="veterinario" className="ml-2 text-sm text-gray-700">
-        Veterinario
-      </label>
-    </div>
-  </div>
-</div>
+            <p className="block text-sm font-medium text-gray-700 mb-1">¿La receta es para uso humano o veterinario?</p>
+            <div className="flex space-x-6">
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="humano"
+                  name="prescriptionType"
+                  value="humano"
+                  defaultChecked
+                  className="custom-radio"
+                />
+                <label htmlFor="humano" className="ml-2 text-sm text-gray-700">
+                  Humano
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="veterinario"
+                  name="prescriptionType"
+                  value="veterinario"
+                  className="custom-radio"
+                />
+                <label htmlFor="veterinario" className="ml-2 text-sm text-gray-700">
+                  Veterinario
+                </label>
+              </div>
+            </div>
+          </div>
 
           {/* File upload */}
           <div>
@@ -151,16 +143,13 @@ export default function Form() {
                   type="file"
                   id="prescription"
                   name="prescription"
-                  onChange={handleFileChange}
                   accept=".jpg,.jpeg,.png,.pdf"
+                  required
+                  onChange={handleFileChange}
                   className="hidden"
                 />
               </label>
-              {formData.prescription && (
-                <p className="text-xs text-gray-600 mt-2 text-center">
-                  Archivo seleccionado: {formData.prescription.name}
-                </p>
-              )}
+              {fileName && <p className="text-xs text-gray-600 mt-2 text-center">Archivo seleccionado: {fileName}</p>}
             </div>
           </div>
 
@@ -172,8 +161,6 @@ export default function Form() {
             <textarea
               id="message"
               name="message"
-              value={formData.message}
-              onChange={handleInputChange}
               rows={4}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0D9488]"
             ></textarea>
@@ -182,9 +169,10 @@ export default function Form() {
           {/* Submit button */}
           <button
             type="submit"
-          className="w-full flex items-center justify-center rounded-md bg-[#0D9488] px-4 py-2 text-sm font-medium text-white hover:bg-[#0D9488]/90 cursor-pointer"
-                  >
-            Enviar Solicitud
+            disabled={isLoading}
+            className="w-full flex items-center justify-center rounded-md bg-[#0D9488] px-4 py-2 text-sm font-medium text-white hover:bg-[#0D9488]/90 cursor-pointer disabled:opacity-70"
+          >
+            {isLoading ? "Enviando..." : "Enviar Solicitud"}
           </button>
         </form>
       </div>
