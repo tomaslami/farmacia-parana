@@ -28,7 +28,7 @@ export default function RequestForm() {
       if (res.status === 200) {
         toast.success(res.message)
         // Reset the form
-        const form = document.getElementById("solicitud") as HTMLFormElement
+        const form = document.getElementById("request-form") as HTMLFormElement
         form?.reset()
         setFileName(null)
       } else {
@@ -44,7 +44,7 @@ export default function RequestForm() {
   }
 
   return (
-    <section className="py-16 px-4" id="solicitar">
+    <section className="py-16 px-4" id="solicitud">
       <Toaster position="top-center" duration={3000} richColors />
       <div className="container mx-auto max-w-md">
         <div className="text-center mb-8">
@@ -54,7 +54,7 @@ export default function RequestForm() {
           <p className="text-sm text-gray-600 mt-2">Completá el formulario y nos pondremos en contacto a la brevedad</p>
         </div>
 
-        <form id="solicitud" action={onSubmit}  className="space-y-4">
+        <form id="request-form" action={onSubmit}  className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
               Nombre y apellido
