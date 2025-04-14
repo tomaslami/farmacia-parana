@@ -13,7 +13,7 @@ export default function Footer() {
               Especialistas en formulación magistral y medicamentos personalizados.
             </p>
             <div className="flex space-x-4">
-              <Link href="https://instagram.com" aria-label="Instagram" className="text-gray-600 hover:text-[#0D9488]">
+              {/* <Link href="https://instagram.com" aria-label="Instagram" className="text-gray-600 hover:text-[#0D9488]">
                 <Instagram size={20} />
               </Link>
               <Link href="https://facebook.com" aria-label="Facebook" className="text-gray-600 hover:text-[#0D9488]">
@@ -21,7 +21,7 @@ export default function Footer() {
               </Link>
               <Link href="https://twitter.com" aria-label="Twitter" className="text-gray-600 hover:text-[#0D9488]">
                 <Twitter size={20} />
-              </Link>
+              </Link> */}
             </div>
           </div>
 
