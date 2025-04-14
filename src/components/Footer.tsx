@@ -5,11 +5,11 @@ export default function Footer() {
   return (
     <footer className="border-t border-gray-200 py-8 sm:py-12">
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row md:space-x-12 lg:space-x-24">
+        <div className="flex flex-col md:flex-row md:justify-between">
           {/* Column 1: Farmacia Info */}
-          <div className="mb-8 md:mb-0">
+          <div className="mb-8 md:mb-0 md:max-w-[250px] lg:max-w-[300px]">
             <h3 className="font-bold text-lg mb-4">Farmacia Paraná</h3>
-            <p className="text-sm text-gray-600 mb-4 w-full md:w-[250px] lg:w-[300px]">
+            <p className="text-sm text-gray-600 mb-4">
               Especialistas en formulación magistral y medicamentos personalizados.
             </p>
             <div className="flex space-x-4">
@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
+          <div className="mb-8 md:mb-0">
             <h3 className="font-bold text-lg mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               <li>
@@ -55,6 +55,27 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
+
+          {/* Column 3: Legal */}
+          <div>
+            <h3 className="font-bold text-lg mb-4">Legal</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/docs/T&C-Farmacia Nueva Paraná.pdf" className="text-sm text-gray-600 hover:text-[#0D9488] underline">
+                  Términos y Condiciones
+                </Link>
+              </li>
+              <li>
+                <Link href="/docs/PP-Farmacia Nueva Paraná.pdf" className="text-sm text-gray-600 hover:text-[#0D9488] underline">
+                  Política de Privacidad
+                </Link>
+              </li>
+            </ul>
+            <p className="text-xs text-gray-500 mt-4">
+              Farmacia Paraná es un nombre comercial registrado. Todos los derechos reservados.
+            </p>
+            <p className="text-xs text-gray-500 mt-1">© Farmacia Paraná | Todos los derechos reservados.</p>
           </div>
         </div>
       </div>
