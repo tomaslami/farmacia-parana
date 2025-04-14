@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react"
 
 export default function Hero() {
   return (
-    <section className="container mx-auto px-4 py-12 md:py-20 xl:max-w-[1480px] lg:max-w-6xl">
+    <section className="container mx-auto px-4 py-12 md:py-20 xl:max-w-[1280px] lg:max-w-6xl">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
         {/* Text Content */}
         <div className="w-full md:w-1/2 lg:w-3/5">

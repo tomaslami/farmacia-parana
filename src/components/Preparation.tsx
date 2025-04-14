@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react"
 export default function Preparation() {
   return (
     <section className="bg-[#F7F7F7] py-16 px-4 flex items-center justify-center" id="proceso">
-      <div className="container xl:max-w-[1480px] lg:max-w-6xl">
+      <div className="container xl:max-w-[1280px] lg:max-w-6xl">
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6">
           Preparación <span className="text-[#0D9488]">controlada</span> y{" "}

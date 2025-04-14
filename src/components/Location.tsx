@@ -15,7 +15,7 @@ export default function LocationSection() {
           por WhatsApp.
         </p>
 
-        <div className="w-full xl:max-w-[1480px] lg:max-w-6xl mx-auto px-4 sm:px-6 lg:w-4/5 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-start">
+        <div className="w-full xl:max-w-[1280px] lg:max-w-6xl mx-auto px-4 sm:px-6 lg:w-4/5 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-start">
           {/* Map */}
           <div className="w-full h-full min-h-[250px] sm:min-h-[300px] bg-gray-200 rounded-md overflow-hidden">
             <iframe
