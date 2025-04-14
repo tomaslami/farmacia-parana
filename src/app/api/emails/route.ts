@@ -46,7 +46,7 @@ export async function POST(req: Request) {
 
     const { data, error } = await resend.emails.send({
       from: "Solicitud@farmacianuevaparana.com.ar",
-      to: ["tomaslamiguralnik@gmail.com"],
+      to: ["farmacianuevaparana@hotmail.com"],
       subject: "Nueva solicitud de Receta",
       html: `
         <p><strong>Nombre:</strong> ${name}</p>
