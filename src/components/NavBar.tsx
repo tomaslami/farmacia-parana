@@ -47,7 +47,7 @@ export default function Navbar() {
         scrolled ? "bg-white/80 backdrop-blur-md" : "bg-white",
       )}
     >
-      <div className="container mx-auto max-w-6xl flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto xl:max-w-[1480px] lg:max-w-6xl flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center">
           <div className="h-10 flex justify-center items-center">
             <Image

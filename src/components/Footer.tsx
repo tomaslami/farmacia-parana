@@ -4,7 +4,7 @@ import { Instagram, Facebook, Twitter } from "lucide-react"
 export default function Footer() {
   return (
     <footer className="border-t border-gray-200 py-8 sm:py-12">
-      <div className="container mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="container mx-auto xl:max-w-[1480px] lg:max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col md:flex-row md:justify-between">
           {/* Column 1: Farmacia Info */}
           <div className="mb-8 md:mb-0 md:max-w-[250px] lg:max-w-[300px]">

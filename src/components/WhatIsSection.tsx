@@ -34,7 +34,7 @@ const cards = [
 export default function WhatIsSection() {
   return (
     <section className="bg-[#F7F7F7] py-12 md:py-20" id="que-es">
-      <div className="container mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="container mx-auto xl:max-w-[1480px] lg:max-w-6xl px-4 sm:px-6">
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6">
           ¿Qué es una <span className="text-[#0D9488]">Receta Magistral</span>?

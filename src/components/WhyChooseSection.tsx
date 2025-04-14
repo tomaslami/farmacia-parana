@@ -4,7 +4,7 @@ import { Check, ChevronRight } from "lucide-react"
 export default function WhyChooseSection() {
   return (
     <section className="py-16 px-4" id="beneficios">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto xl:max-w-[1480px] lg:max-w-6xl">
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">
           ¿Por qué elegir una <span className="text-[#0D9488]">Receta Magistral</span>?

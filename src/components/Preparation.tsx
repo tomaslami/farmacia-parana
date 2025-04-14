@@ -3,8 +3,8 @@ import { ChevronRight } from "lucide-react"
 
 export default function Preparation() {
   return (
-    <section className="bg-[#F7F7F7] py-16 px-4" id="proceso">
-      <div className="container mx-auto max-w-5xl">
+    <section className="bg-[#F7F7F7] py-16 px-4 flex items-center justify-center" id="proceso">
+      <div className="container xl:max-w-[1480px] lg:max-w-6xl">
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6">
           Preparación <span className="text-[#0D9488]">controlada</span> y{" "}
@@ -19,7 +19,7 @@ export default function Preparation() {
         </p>
 
         {/* Four steps */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12 ">
           {/* Step 1 */}
           <div className="flex flex-col items-center text-center">
             <div className="bg-[#0D9488]/10 rounded-full w-16 h-16 flex justify-center items-center mb-4">

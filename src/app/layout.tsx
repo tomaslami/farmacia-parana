@@ -27,7 +27,7 @@ export default function RootLayout({
         className={`${montserrat.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <main className="max-w-[1680px] mx-auto">{children}</main>
         <Footer/>
         <FloatingButton phoneNumber="541131629344" />
       </body>
