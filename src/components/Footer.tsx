@@ -72,9 +72,6 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-            <p className="text-xs text-gray-500 mt-4">
-              Farmacia Paraná es un nombre comercial registrado. Todos los derechos reservados.
-            </p>
             <p className="text-xs text-gray-500 mt-1">© Farmacia Paraná | Todos los derechos reservados.</p>
           </div>
         </div>
