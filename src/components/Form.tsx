@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, type FormEvent, useRef } from "react"
 import { Upload } from "lucide-react"
 import { handleSubmit } from "@/actions/contact-action"
 import { toast, Toaster } from "sonner"
@@ -10,6 +10,7 @@ import { toast, Toaster } from "sonner"
 export default function RequestForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [fileName, setFileName] = useState<string | null>(null)
+  const formRef = useRef<HTMLFormElement>(null)
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -19,7 +20,36 @@ export default function RequestForm() {
     }
   }
 
-  async function onSubmit(formData: FormData) {
+  const validateForm = (form: HTMLFormElement) => {
+    const name = form.elements.namedItem("name") as HTMLInputElement
+    const email = form.elements.namedItem("email") as HTMLInputElement
+    const phone = form.elements.namedItem("phone") as HTMLInputElement
+    
+    const missingFields = []
+    
+    if (!name.value.trim()) missingFields.push("Nombre y apellido")
+    if (!email.value.trim()) missingFields.push("Email")
+    if (!phone.value.trim()) missingFields.push("Teléfono")
+    if (!fileName) missingFields.push("Receta Médica")
+    
+    return missingFields
+  }
+
+  async function onFormSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    
+    // Get form element
+    const form = e.currentTarget
+    
+    // Validate all required fields
+    const missingFields = validateForm(form)
+    
+    if (missingFields.length > 0) {
+      toast.error(`Por favor complete los siguientes campos: ${missingFields.join(", ")}`)
+      return
+    }
+    
+    const formData = new FormData(form)
     setIsLoading(true)
 
     try {
@@ -28,8 +58,7 @@ export default function RequestForm() {
       if (res.status === 200) {
         toast.success(res.message)
         // Reset the form
-        const form = document.getElementById("request-form") as HTMLFormElement
-        form?.reset()
+        form.reset()
         setFileName(null)
       } else {
         const messages = Array.isArray(res.message) ? res.message : [res.message]
@@ -54,16 +83,15 @@ export default function RequestForm() {
           <p className="text-sm text-gray-600 mt-2">Completá el formulario y nos pondremos en contacto a la brevedad</p>
         </div>
 
-        <form id="request-form" action={onSubmit}  className="space-y-4">
+        <form ref={formRef} id="request-form" onSubmit={onFormSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-              Nombre y apellido
+              Nombre y apellido <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               id="name"
               name="name"
-              required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0D9488]"
             />
           </div>
@@ -71,13 +99,12 @@ export default function RequestForm() {
           {/* Email field */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-              Email
+              Email <span className="text-red-500">*</span>
             </label>
             <input
               type="email"
               id="email"
               name="email"
-              required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0D9488]"
             />
           </div>
@@ -85,13 +112,12 @@ export default function RequestForm() {
           {/* Phone field */}
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-              Teléfono
+              Teléfono <span className="text-red-500">*</span>
             </label>
             <input
               type="tel"
               id="phone"
               name="phone"
-              required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0D9488]"
             />
           </div>
@@ -130,13 +156,15 @@ export default function RequestForm() {
 
           {/* File upload */}
           <div>
-            <p className="block text-sm font-medium text-gray-700 mb-1">Subir Receta Médica</p>
-            <div className="border border-gray-300 rounded-md p-4 bg-gray-50">
+            <p className="block text-sm font-medium text-gray-700 mb-1">
+              Subir Receta Médica <span className="text-red-500">*</span>
+            </p>
+            <div className={`border rounded-md p-4 ${fileName ? 'border-green-500 bg-green-50' : 'border-gray-300 bg-gray-50'}`}>
               <label
                 htmlFor="prescription"
                 className="flex flex-col items-center justify-center cursor-pointer text-center"
               >
-                <Upload className="h-6 w-6 text-gray-400 mb-2" />
+                <Upload className={`h-6 w-6 mb-2 ${fileName ? 'text-green-500' : 'text-gray-400'}`} />
                 <p className="text-xs text-gray-500">Haz clic para subir o arrastra y suelta aquí</p>
                 <p className="text-xs text-gray-400 mt-1">JPG, PNG o PDF (máx. 10MB)</p>
                 <input
@@ -144,12 +172,15 @@ export default function RequestForm() {
                   id="prescription"
                   name="prescription"
                   accept=".jpg,.jpeg,.png,.pdf"
-                  required
                   onChange={handleFileChange}
                   className="hidden"
                 />
               </label>
-              {fileName && <p className="text-xs text-gray-600 mt-2 text-center">Archivo seleccionado: {fileName}</p>}
+              {fileName ? (
+                <p className="text-xs text-green-600 mt-2 text-center">Archivo seleccionado: {fileName}</p>
+              ) : (
+                <p className="text-xs text-gray-500 mt-2 text-center">Ningún archivo seleccionado</p>
+              )}
             </div>
           </div>
 
@@ -174,6 +205,9 @@ export default function RequestForm() {
           >
             {isLoading ? "Enviando..." : "Enviar Solicitud"}
           </button>
+          <p className="text-xs text-gray-500 text-center mt-2">
+            <span className="text-red-500">*</span> Campos obligatorios
+          </p>
         </form>
       </div>
     </section>
