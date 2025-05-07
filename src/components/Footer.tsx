@@ -62,11 +62,6 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/docs/T&C-Farmacia Nueva Paraná.pdf" className="text-sm text-gray-600 hover:text-[#0D9488] underline">
-                  Términos y Condiciones
-                </Link>
-              </li>
-              <li>
                 <Link href="/docs/PP-Farmacia Nueva Paraná.pdf" className="text-sm text-gray-600 hover:text-[#0D9488] underline">
                   Política de Privacidad
                 </Link>
