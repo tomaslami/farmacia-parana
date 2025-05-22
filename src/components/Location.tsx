@@ -75,6 +75,7 @@ export default function LocationSection() {
               <div>
                 <h4 className="font-medium text-gray-900">Email</h4>
                 <p className="text-gray-600 text-sm">farmacianuevaparana@hotmail.com</p>
+                <p className="text-gray-600 text-sm">recetas@nuevaparana.com.ar</p>
               </div>
             </div>
           </div>
