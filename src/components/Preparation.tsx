@@ -13,9 +13,7 @@ export default function Preparation() {
 
         {/* Description */}
         <p className="text-center text-sm md:text-base max-w-3xl mx-auto mb-12">
-          Cada fórmula se elabora en condiciones higiénicas controladas, cumpliendo con protocolos de calidad y
-          trazabilidad. El farmacéutico evalúa la receta —médica o veterinaria—, selecciona los ingredientes, la
-          prepara, la rotula y registra toda la trazabilidad del preparado.
+        Cada fórmula se elabora en condiciones higiénicas controladas, cumpliendo con protocolos de calidad y trazabilidad. El farmacéutico evalúa la receta —médica o veterinaria—, selecciona los ingredientes, la prepara, la rotula y registra toda la trazabilidad del preparado.
         </p>
 
         {/* Four steps */}
@@ -25,8 +23,8 @@ export default function Preparation() {
             <div className="bg-[#0D9488]/10 rounded-full w-16 h-16 flex justify-center items-center mb-4">
               <span className="text-[#0D9488] text-3xl font-extrabold">1</span>
             </div>
-            <h3 className="font-semibold text-lg mb-2">Evaluación</h3>
-            <p className="text-sm">Análisis detallado de la prescripción médica</p>
+            <h3 className="font-semibold text-lg mb-2">Indicación profesional</h3>
+            <p className="text-sm">El paciente o tutor presenta la indicación emitida por un profesional médico o veterinario</p>
           </div>
 
           {/* Step 2 */}
@@ -34,8 +32,8 @@ export default function Preparation() {
             <div className="bg-[#0D9488]/10 rounded-full w-16 h-16 flex justify-center items-center mb-4">
               <span className="text-[#0D9488] text-3xl font-extrabold">2</span>
             </div>
-            <h3 className="font-semibold text-lg mb-2">Selección</h3>
-            <p className="text-sm">Elección de ingredientes de alta calidad</p>
+            <h3 className="font-semibold text-lg mb-2">Análisis farmacéutico</h3>
+            <p className="text-sm">Nuestro equipo evalúa la formulación necesaria y define la preparación adecuada</p>
           </div>
 
           {/* Step 3 */}
@@ -43,8 +41,9 @@ export default function Preparation() {
             <div className="bg-[#0D9488]/10 rounded-full w-16 h-16 flex justify-center items-center mb-4">
               <span className="text-[#0D9488] text-3xl font-extrabold">3</span>
             </div>
-            <h3 className="font-semibold text-lg mb-2">Preparación</h3>
-            <p className="text-sm">Elaboración en ambiente controlado</p>
+            <h3 className="font-semibold text-lg mb-2">Elaboración magistral
+            </h3>
+            <p className="text-sm">Desarrollamos la preparación siguiendo normas de seguridad y estándares farmacéuticos.</p>
           </div>
 
           {/* Step 4 */}
@@ -52,8 +51,9 @@ export default function Preparation() {
             <div className="bg-[#0D9488]/10 rounded-full w-16 h-16 flex justify-center items-center mb-4">
               <span className="text-[#0D9488] text-3xl font-extrabold">4</span>
             </div>
-            <h3 className="font-semibold text-lg mb-2">Control</h3>
-            <p className="text-sm">Verificación, etiquetado y registro</p>
+            <h3 className="font-semibold text-lg mb-2">Entrega segura</h3>
+            <p className="text-sm">Enviamos tu preparación de manera confiable y protegida a CABA, GBA o todo el
+            país.</p>
           </div>
         </div>
 
@@ -63,7 +63,7 @@ export default function Preparation() {
             href="#solicitud"
             className="border-[#0D9488] border-[1px] inline-flex items-center rounded-md bg-[#CCFBF1] px-5 py-2.5 text-sm font-medium text-[#0D9488] hover:bg-[#0D9488]/20"
           >
-            Solicitar Receta
+            Consultá por tu preparación
             <ChevronRight className="ml-1 h-4 w-4" />
           </Link>
         </div>

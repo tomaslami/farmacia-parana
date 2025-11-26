@@ -9,7 +9,8 @@ export default function Hero() {
         {/* Text Content */}
         <div className="w-full md:w-1/2 lg:w-3/5">
           <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold leading-tight text-black mb-4">
-            Medicamentos Personalizados, Preparados Especialmente para <span className="text-[#0D9488]">Vos</span>
+          Formulaciones elaboradas por farmacéuticos según indicación profesional para humanos y mascotas.
+
           </h1>
           <p className="text-sm md:text-base text-[#1E1E1E] mb-6 md:mb-8">
             Desarrollamos soluciones únicas según tu prescripción médica.
@@ -18,7 +19,7 @@ export default function Hero() {
             href="#solicitud"
             className="inline-flex items-center rounded-md bg-[#0D9488] px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-white hover:bg-[#0D9488]/90 transition-colors"
           >
-            Solicita tu Receta Magistral
+            Consultá por tu preparación
             <ChevronRight className="ml-1 h-4 w-4" />
           </Link>
         </div>

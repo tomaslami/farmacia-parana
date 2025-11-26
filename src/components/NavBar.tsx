@@ -84,7 +84,7 @@ export default function Navbar() {
           href="#solicitud"
           className="hidden md:inline-flex items-center rounded-md bg-[#0D9488] px-4 py-2 text-sm font-medium text-white hover:bg-[#0D9488]/90"
         >
-          Solicitar Receta
+          Consultá por tu preparación
           <ChevronRight className="ml-1 h-4 w-4" />
         </Link>
 
@@ -200,7 +200,7 @@ export default function Navbar() {
                     className="flex items-center justify-center w-full rounded-md bg-[#0D9488] px-4 py-2 text-sm font-medium text-white hover:bg-[#0D9488]/90"
                     onClick={() => setIsOpen(false)}
                   >
-                    Solicitar Receta
+                    Consultá por tu preparación
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </motion.div>

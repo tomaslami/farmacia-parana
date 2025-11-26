@@ -75,12 +75,13 @@ export default function RequestForm() {
   return (
     <section className="py-16 px-4" id="solicitud">
       <Toaster position="top-center" duration={3000} richColors />
-      <div className="container mx-auto max-w-md">
+      <div className="container mx-auto max-w-lg">
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold">
-            Solicitá tu <span className="text-[#0D9488]">Receta Magistral</span>
+          <h2 className="text-2xl md:text-3xl font-bold w-full">
+            Solicitá tu <span className="text-[#0D9488]">preparación personalizada</span>
           </h2>
-          <p className="text-sm text-gray-600 mt-2">Completá el formulario y nos pondremos en contacto a la brevedad</p>
+          <p className="text-sm text-gray-600 mt-2">Consultanos para recibir asesoramiento sobre preparaciones magistrales para uso humano
+          o veterinario. Nuestro equipo farmacéutico está disponible para orientarte</p>
         </div>
 
         <form ref={formRef} id="request-form" onSubmit={onFormSubmit} className="space-y-4">

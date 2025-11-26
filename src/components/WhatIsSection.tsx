@@ -42,9 +42,8 @@ export default function WhatIsSection() {
 
         {/* Description */}
         <p className="text-center text-sm md:text-base max-w-3xl mx-auto mb-8 md:mb-12">
-          Las recetas magistrales son preparados realizados por un farmacéutico a partir de una fórmula médica o
-          veterinaria individualizada. Se utilizan cuando un medicamento no se encuentra disponible en el mercado o
-          cuando es necesario adaptar dosis, formas o componentes para un paciente específico, ya sea humano o animal.
+        Soluciones magistrales elaboradas por profesionales
+        Creamos preparaciones magistrales personalizadas, desarrolladas según la indicación de un profesional médico o veterinario. Adaptamos formas, concentraciones y características para cada necesidad.
         </p>
 
         {/* Five columns */}
