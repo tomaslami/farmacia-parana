@@ -66,6 +66,11 @@ export default function Footer() {
                   Política de Privacidad
                 </Link>
               </li>
+              <li>
+                <p className="text-sm text-gray-600">
+                Farmacia habilitada por ANMAT. Todos los preparados son elaborados bajo control profesional.
+                </p>
+              </li>
             </ul>
             <p className="text-xs text-gray-500 mt-1">© Farmacia Paraná | Todos los derechos reservados.</p>
           </div>
