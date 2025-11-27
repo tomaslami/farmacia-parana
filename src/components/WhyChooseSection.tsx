@@ -7,7 +7,7 @@ export default function WhyChooseSection() {
       <div className="container mx-auto xl:max-w-[1280px] lg:max-w-6xl">
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">
-          ¿Por qué elegir una <span className="text-[#0D9488]">Receta Magistral</span>?
+          ¿Por qué elegir una <span className="text-[#0D9488]">Preparación Magistral</span>?
         </h2>
 
         {/* Benefits Grid */}
@@ -87,7 +87,7 @@ export default function WhyChooseSection() {
             href="#solicitud"
             className="border-[#0D9488] border-[1px] inline-flex items-center rounded-md bg-[#CCFBF1] px-5 py-2.5 text-sm font-medium text-[#0D9488] hover:bg-[#0D9488]/20"
           >
-            Solicitar Receta
+            Solicitar Preparación
             <ChevronRight className="ml-1 h-4 w-4" />
           </Link>
         </div>

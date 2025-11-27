@@ -37,7 +37,7 @@ export default function WhatIsSection() {
       <div className="container mx-auto xl:max-w-[1280px] lg:max-w-6xl px-4 sm:px-6">
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6">
-          ¿Qué es una <span className="text-[#0D9488]">Receta Magistral</span>?
+          ¿Qué es un <span className="text-[#0D9488]">Preparación Magistral</span>?
         </h2>
 
         {/* Description */}
@@ -71,7 +71,7 @@ export default function WhatIsSection() {
             href="#solicitud"
             className="border-[#0D9488] border-[1px] inline-flex items-center rounded-md bg-[#CCFBF1] px-5 py-2.5 text-sm font-medium text-[#0D9488] hover:bg-[#0D9488]/20 transition-colors"
           >
-            Solicitar Receta
+            Solicitar Preparación
             <ChevronRight className="ml-1 h-4 w-4" />
           </Link>
         </div>
